@@ -1,0 +1,8 @@
+Command executed: ./pipeline.sh (which runs: tail -f system.log 2>/dev/null | grep --line-buffered "ERROR" | tee -a error_report.txt)
+
+Observation/Justification: 
+- tail -f: Efficiently reads only the newest lines added to the file in real-time without reopening it.
+- 2>/dev/null: Suppresses unnecessary standard error output (like file access warnings) by discarding them, keeping the console clean.
+- pipes (|): Pass the output directly from one command to the next in memory, avoiding the need for temporary middleman files.
+- grep: Filters only the critical "ERROR" lines, heavily reducing the amount of data the user has to read.
+- tee -a: Efficiently splits the output stream, displaying it on the screen while simultaneously appending it to the report file.

@@ -1,0 +1,3 @@
+Command executed: gcc monitor.c -o monitor && ./monitor
+
+Observation/Justification: The program successfully created a child using fork(). I simulated an unresponsive process using sleep(). I prevented zombie processes by using waitpid() to clean up the process table, and utilized the kill() function to send a SIGKILL signal to terminate the child when the WNOHANG check confirmed it was taking too long to respond.

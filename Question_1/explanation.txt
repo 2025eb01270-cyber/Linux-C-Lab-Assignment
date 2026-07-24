@@ -1,0 +1,3 @@
+Command executed: ./script.sh
+
+Observation/Justification: I used a bash script to loop through the directory. To accurately identify duplicate submissions, I used the 'md5sum' command to generate a hash of the file contents. I used standard redirection (>) and append (>>) to generate the report file, and standard error redirection (2>) to route all error messages into a dedicated 'errors' directory to satisfy the prompt requirements.

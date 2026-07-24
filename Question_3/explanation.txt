@@ -1,0 +1,3 @@
+Command executed: gcc records.c -o records && ./records
+
+Observation/Justification: I successfully built a secure file utility using Linux system calls. I used open() to create a file descriptor with appropriate permissions. I used write() and read() to manipulate the raw byte stream of the struct data. Most importantly, lseek() allowed me to calculate byte offsets and jump directly to specific records to update or read them efficiently, rather than rewriting the entire file sequentially. Finally, close() safely released the file descriptor.

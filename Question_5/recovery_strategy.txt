@@ -1,0 +1,10 @@
+Evaluation of vi Recovery Mechanisms:
+
+1. swap files (.swp): this is vi's built-in safety net. it saves unwritten changes in the background while you work. definitely the best tool for a crash.
+2. undo history: usually stored in RAM. if the system crashes, this is gone completely (unless you specifically configured persistent undo, but you can't rely on that by default).
+3. registers: used for copy/pasting text. also stored in RAM and completely wiped out during a system crash. useless for crash recovery.
+4. backup files (~): this just stores the original state of the file from *before* you started editing. it's good if you made a huge mistake and want to start over, but it doesn't save any of the new work you did before the crash.
+5. auto-recovery: relies entirely on the swap files existing to restore the session.
+
+Proposed Most Reliable Strategy:
+the absolute most reliable strategy is relying on the swap file (.swp). since the system crashed mid-edit, the swap file is left behind on the disk. the developer just needs to log back in and run `vi -r critical_config_file.conf`. this tells vi to read the hidden .swp file and restore the unsaved text buffer exactly to where it was right before the system died.

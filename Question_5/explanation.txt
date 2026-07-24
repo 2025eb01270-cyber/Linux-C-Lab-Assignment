@@ -1,0 +1,3 @@
+Task Executed: Authored recovery evaluation report using nano and displayed it using cat.
+
+Observation/Justification: As evaluated in my report, RAM-based mechanisms (registers, undo) are destroyed in a crash. Backup files only save the pre-edit state. Therefore, swap files are the only viable mechanism for mid-edit system crashes, making `vi -r` the definitive and most reliable recovery command.
